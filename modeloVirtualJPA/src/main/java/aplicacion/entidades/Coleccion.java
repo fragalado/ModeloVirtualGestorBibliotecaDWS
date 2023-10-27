@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "coleccion", schema = "gbp_operacional")
+@Table(name = "colecciones", schema = "gbp_operacional")
 public class Coleccion {
 
 	// Atributos

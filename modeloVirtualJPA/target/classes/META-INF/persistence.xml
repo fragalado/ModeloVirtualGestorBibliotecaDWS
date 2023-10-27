@@ -12,6 +12,7 @@
         <class>aplicacion.entidades.Usuario</class>
         <class>aplicacion.entidades.Autor</class>
         <class>aplicacion.entidades.Prestamo</class>
+        <class>aplicacion.entidades.EstadoPrestamo</class>
         <exclude-unlisted-classes></exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>

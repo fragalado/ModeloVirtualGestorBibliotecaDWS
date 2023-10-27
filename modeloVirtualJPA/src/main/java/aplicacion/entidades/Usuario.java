@@ -16,7 +16,7 @@ import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "usuario", schema = "gbp_operacional")
+@Table(name = "usuarios", schema = "gbp_operacional")
 public class Usuario {
 	// Atributos
 	
@@ -46,7 +46,7 @@ public class Usuario {
 	@Column(name = "estaBloqueado_usuario")
 	private boolean estaBloqueado_usuario;
 	
-	@Column(name = "fch_fin_bloque_usuario")
+	@Column(name = "fch_fin_bloqueo_usuario")
 	@Temporal(TemporalType.TIMESTAMP)
 	private Calendar fch_fin_bloqueo_usuario;
 	
@@ -63,7 +63,7 @@ public class Usuario {
 	Acceso acceso;
 	
 	@OneToMany(mappedBy = "usuario")
-	List<Prestamo> listaConPrestamos;
+	List<Prestamo> usuarioConPrestamos;
 	
 	// Constructores
 	
@@ -72,7 +72,7 @@ public class Usuario {
 	}
 	
 	public Usuario(String dni_usuario, String nombre_usuario, String apellidos_usuario, String tlf_usuario,
-			String email_usuario, String clave_usuario, boolean estaBloqueado_usuario, Calendar fch_fin_bloque_usuario,
+			String email_usuario, String clave_usuario, boolean estaBloqueado_usuario, Calendar fch_fin_bloqueo_usuario,
 			Calendar fch_alta_usuario, Calendar fch_baja_usuario, Acceso acceso) {
 		super();
 		this.dni_usuario = dni_usuario;
@@ -82,7 +82,7 @@ public class Usuario {
 		this.email_usuario = email_usuario;
 		this.clave_usuario = clave_usuario;
 		this.estaBloqueado_usuario = estaBloqueado_usuario;
-		this.fch_fin_bloqueo_usuario = fch_fin_bloque_usuario;
+		this.fch_fin_bloqueo_usuario = fch_fin_bloqueo_usuario;
 		this.fch_alta_usuario = fch_alta_usuario;
 		this.fch_baja_usuario = fch_baja_usuario;
 		this.acceso = acceso;

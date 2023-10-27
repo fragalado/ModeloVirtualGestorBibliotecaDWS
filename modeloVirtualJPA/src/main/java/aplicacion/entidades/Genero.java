@@ -11,7 +11,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "genero", schema = "gbp_operacional")
+@Table(name = "generos", schema = "gbp_operacional")
 public class Genero {
 	
 	// Atributos

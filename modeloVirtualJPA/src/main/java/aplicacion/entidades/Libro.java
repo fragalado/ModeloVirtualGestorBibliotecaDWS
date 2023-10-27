@@ -15,7 +15,7 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "libro", schema = "gbp_operacional")
+@Table(name = "libros", schema = "gbp_operacional")
 public class Libro {
 	
 	// Atributos
@@ -49,9 +49,18 @@ public class Libro {
 	@ManyToMany
 	@JoinTable(
 	        name = "rel_autores_libros",
+	        schema = "gbp_operacional",
 	        joinColumns = @JoinColumn(referencedColumnName = "id_libro", name = "id_libro"),
 	        inverseJoinColumns = @JoinColumn(referencedColumnName = "id_autor", name = "id_autor"))
 	List<Autor> autorConLibro;
+	
+	@ManyToMany
+	@JoinTable(
+	        name = "rel_prestamos_libros",
+	        schema = "gbp_operacional",
+	        joinColumns = @JoinColumn(referencedColumnName = "id_libro", name = "id_libro"),
+	        inverseJoinColumns = @JoinColumn(referencedColumnName = "id_prestamo", name = "id_prestamo"))
+	List<Prestamo> prestamoConLibro;
 	
 	
 	

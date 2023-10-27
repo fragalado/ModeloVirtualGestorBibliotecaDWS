@@ -12,7 +12,7 @@ import jakarta.persistence.ManyToMany;
 import jakarta.persistence.Table;
 
 @Entity
-@Table(name = "autor", schema = "gbp_operacional")
+@Table(name = "autores", schema = "gbp_operacional")
 public class Autor {
 	
 	// Atributos

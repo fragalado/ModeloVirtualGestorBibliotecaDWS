@@ -1,6 +1,7 @@
 package aplicacion.entidades;
 
 import java.util.Calendar;
+import java.util.List;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -8,13 +9,14 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Temporal;
 import jakarta.persistence.TemporalType;
 
 @Entity
-@Table(name = "prestamo", schema = "gbp_operacional")
+@Table(name = "prestamos", schema = "gbp_operacional")
 public class Prestamo {
 	
 	// Atributos
@@ -40,9 +42,27 @@ public class Prestamo {
 	@JoinColumn(name = "id_usuario")
 	Usuario usuario;
 	
+	@ManyToOne
+	@JoinColumn(name = "id_estado_prestamo")
+	EstadoPrestamo estadoPrestamo;
 	
-	//EstadoPrestamo estadoPrestamo;
+	@ManyToMany(mappedBy = "prestamoConLibro")
+	List<Libro> libroConPrestamo;
 	
 	
 	// Constructores
+	
+	public Prestamo() {
+		super();
+	}
+	
+	public Prestamo(Calendar fch_inicio_prestamo, Calendar fch_fin_prestamo, Calendar fch_entrega_prestamo,
+			Usuario usuario, EstadoPrestamo estadoPrestamo) {
+		super();
+		this.fch_inicio_prestamo = fch_inicio_prestamo;
+		this.fch_fin_prestamo = fch_fin_prestamo;
+		this.fch_entrega_prestamo = fch_entrega_prestamo;
+		this.usuario = usuario;
+		this.estadoPrestamo = estadoPrestamo;
+	}
 }
