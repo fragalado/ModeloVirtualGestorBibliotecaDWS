@@ -1,4 +1,4 @@
-package aplicacion.entidades;
+package aplicacion.dtos;
 
 import java.util.List;
 
@@ -39,5 +39,32 @@ public class Acceso {
 		super();
 		this.codigo_acceso = codigo_acceso;
 		this.descripcion_acceso = descripcion_acceso;
+	}
+	
+	// Getter
+	
+	public String getCodigo_acceso() {
+		return codigo_acceso;
+	}
+
+	public String getDescripcion_acceso() {
+		return descripcion_acceso;
+	}
+	
+	// Setter
+
+	public void setCodigo_acceso(String codigo_acceso) {
+		this.codigo_acceso = codigo_acceso;
+	}
+
+	public void setDescripcion_acceso(String descripcion_acceso) {
+		this.descripcion_acceso = descripcion_acceso;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Acceso [codigo_acceso=" + codigo_acceso + ", descripcion_acceso=" + descripcion_acceso + "]";
 	}
 }

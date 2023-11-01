@@ -1,4 +1,4 @@
-package aplicacion.entidades;
+package aplicacion.dtos;
 
 
 import java.util.List;

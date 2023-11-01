@@ -1,13 +1,14 @@
 package aplicacion.controladores;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.ArrayList;
+import java.util.List;
 
-import aplicacion.entidades.Acceso;
-import aplicacion.entidades.Usuario;
-import aplicacion.servicios.UsuarioImplementacion;
-import aplicacion.servicios.UsuarioInterfaz;
+import aplicacion.daos.AccesoDao;
+import aplicacion.daos.Crud;
+import aplicacion.daos.UsuarioDao;
+import aplicacion.dtos.Acceso;
+import aplicacion.dtos.Prestamo;
+import aplicacion.dtos.Usuario;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
@@ -16,27 +17,40 @@ public class Menu {
 
 	public static void main(String[] args) {
 		
+		// EntityManagerFactory y EntityManager
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("default");
 		EntityManager em = emf.createEntityManager();
 		
-		Acceso a1 = new Acceso("Emp", "Empleados de la biblioteca");
-		Acceso a2 = new Acceso("Usu", "Usuarios de la biblioteca");
+		// Lista para guardar los objetos
+		List<Object> lista = new ArrayList<Object>();
 		
-		Calendar calendario = new GregorianCalendar();
-		Date fecha = new Date(2023, 10, 25);
-		calendario.setTime(fecha);
-		Usuario u1 = new Usuario("53965130T", "Fran", "Gallego Dorado", "643543524", "noemail@no.com", "dwjiadjiwa2", false, null, calendario, null, a2);
+		// Instanciamos crud para poder hacer el crud a la base de datos
+		Crud crud = new Crud();
 		
-		// Insert usuario
-		try {
-			UsuarioInterfaz usuInterfaz = new UsuarioImplementacion();
-			usuInterfaz.insertUsuario(em);
-		} catch (Exception e) {
-			System.err.println("** ERROR: "+ e.getMessage()+" **");
-		}
+		// Acceso
+		Acceso acc1 = new Acceso("Usu", "Usuarios de la biblioteca");
+		Acceso acc2 = new Acceso("Emp", "Empleados de la biblioteca");
+		Acceso acc3 = new Acceso("Prueba", "prueba para update");
+		Acceso acc4 = new Acceso("Prueba2", "prueba para delete");
 		
-		// Cerramos em
-		em.close();
+		// Usuario
+		Usuario usu1 = new Usuario("53965130T", "Francisco", "Gallego", "43242342", "fa@noemia", "dadwao21", false, null, null, null, acc1);
+		Usuario usu2 = new Usuario();
+		
+		// Prestamo
+		
+		// Insert
+		crud.insert(em, acc1);
+		crud.insert(em, acc2);
+		crud.insert(em, acc3);
+		crud.insert(em, acc4);
+		crud.insert(em, usu1);
+		// Select
+		lista = crud.select(em, "SELECT u FROM Usuario u", lista);
+		lista = crud.select(em, "SELECT a FROM Acceso a", lista);
+		// Update
+		// Delete
+		
 	}
 
 }

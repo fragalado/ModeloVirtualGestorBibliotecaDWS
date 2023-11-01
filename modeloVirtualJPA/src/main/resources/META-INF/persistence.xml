@@ -4,15 +4,15 @@
              xsi:schemaLocation="https://jakarta.ee/xml/ns/persistence https://jakarta.ee/xml/ns/persistence/persistence_3_0.xsd"
              version="3.0">
     <persistence-unit name="default">
-        <class>aplicacion.entidades.Acceso</class>
-        <class>aplicacion.entidades.Coleccion</class>
-        <class>aplicacion.entidades.Editorial</class>
-        <class>aplicacion.entidades.Genero</class>
-        <class>aplicacion.entidades.Libro</class>
-        <class>aplicacion.entidades.Usuario</class>
-        <class>aplicacion.entidades.Autor</class>
-        <class>aplicacion.entidades.Prestamo</class>
-        <class>aplicacion.entidades.EstadoPrestamo</class>
+        <class>aplicacion.dtos.Acceso</class>
+        <class>aplicacion.dtos.Coleccion</class>
+        <class>aplicacion.dtos.Editorial</class>
+        <class>aplicacion.dtos.Genero</class>
+        <class>aplicacion.dtos.Libro</class>
+        <class>aplicacion.dtos.Usuario</class>
+        <class>aplicacion.dtos.Autor</class>
+        <class>aplicacion.dtos.Prestamo</class>
+        <class>aplicacion.dtos.EstadoPrestamo</class>
         <exclude-unlisted-classes></exclude-unlisted-classes>
         <properties>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
