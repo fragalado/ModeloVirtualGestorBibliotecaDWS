@@ -37,4 +37,24 @@ public class Editorial {
 		super();
 		this.nombre_editorial = nombre_editorial;
 	}
+	
+	// Getter
+	
+	public String getNombre_editorial() {
+		return nombre_editorial;
+	}
+	
+	// Setter
+	
+	public void setNombre_editorial(String nombre_editorial) {
+		this.nombre_editorial = nombre_editorial;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Editorial [nombre_editorial=" + nombre_editorial + "]";
+	}
+	
 }

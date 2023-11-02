@@ -1,6 +1,7 @@
 package aplicacion.dtos;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -34,6 +35,9 @@ public class Libro {
 	@Column(name = "edicion_libro")
 	private String edicion_libro;
 	
+	@Column(name = "cantidad_libro")
+	private int cantidad_libro;
+	
 	@ManyToOne
 	@JoinColumn(name = "id_genero")
 	Genero genero;
@@ -52,7 +56,7 @@ public class Libro {
 	        schema = "gbp_operacional",
 	        joinColumns = @JoinColumn(referencedColumnName = "id_libro", name = "id_libro"),
 	        inverseJoinColumns = @JoinColumn(referencedColumnName = "id_autor", name = "id_autor"))
-	List<Autor> autorConLibro;
+	List<Autor> autorConLibro = new ArrayList<Autor>();
 	
 	@ManyToMany
 	@JoinTable(
@@ -71,7 +75,7 @@ public class Libro {
 		super();
 	}
 	
-	public Libro(String isbn_libro, String titulo_libro, String edicion_libro, Genero genero, Editorial editorial,
+	public Libro(String isbn_libro, String titulo_libro, String edicion_libro, int cantidadLibro, Genero genero, Editorial editorial,
 			Coleccion coleccion) {
 		super();
 		this.isbn_libro = isbn_libro;
@@ -80,5 +84,82 @@ public class Libro {
 		this.genero = genero;
 		this.editorial = editorial;
 		this.coleccion = coleccion;
+		this.cantidad_libro = cantidadLibro;
+	}
+	
+	// Getter
+	
+	public Coleccion getColeccion() {
+		return coleccion;
+	}
+
+	public String getIsbn_libro() {
+		return isbn_libro;
+	}
+
+	public String getTitulo_libro() {
+		return titulo_libro;
+	}
+
+	public String getEdicion_libro() {
+		return edicion_libro;
+	}
+	
+	public int getCantidadLibro() {
+		return cantidad_libro;
+	}
+
+	public Genero getGenero() {
+		return genero;
+	}
+
+	public Editorial getEditorial() {
+		return editorial;
+	}
+	
+	public List<Autor> getAutorConLibro() {
+		return autorConLibro;
+	}
+
+	public List<Prestamo> getPrestamoConLibro() {
+		return prestamoConLibro;
+	}
+	
+	// Setter
+
+	public void setColeccion(Coleccion coleccion) {
+		this.coleccion = coleccion;
+	}
+	
+	public void setIsbn_libro(String isbn_libro) {
+		this.isbn_libro = isbn_libro;
+	}
+
+	public void setTitulo_libro(String titulo_libro) {
+		this.titulo_libro = titulo_libro;
+	}
+	
+	public void setCantidad_libro(int cantidad_libro) {
+		this.cantidad_libro = cantidad_libro;
+	}
+
+	public void setEdicion_libro(String edicion_libro) {
+		this.edicion_libro = edicion_libro;
+	}
+
+	public void setGenero(Genero genero) {
+		this.genero = genero;
+	}
+
+	public void setEditorial(Editorial editorial) {
+		this.editorial = editorial;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Libro [isbn_libro=" + isbn_libro + ", titulo_libro=" + titulo_libro + ", edicion_libro=" + edicion_libro
+				+ ", genero=" + genero + ", cantidad libro="+cantidad_libro+ ", editorial=" + editorial + ", coleccion=" + coleccion + ", autor="+autorConLibro+"]";
 	}
 }

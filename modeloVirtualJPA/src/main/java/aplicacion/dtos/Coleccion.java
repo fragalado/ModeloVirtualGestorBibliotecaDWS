@@ -23,18 +23,38 @@ public class Coleccion {
 
 	@Column(name = "nombre_coleccion")
 	private String nombre_coleccion;
-	
+
 	@OneToMany(mappedBy = "coleccion")
 	List<Libro> librosColeccion;
 
 	// Constructores
 
 	public Coleccion() {
-			super();
-		}
+		super();
+	}
 
 	public Coleccion(String nombre_coleccion) {
-			super();
-			this.nombre_coleccion = nombre_coleccion;
-		}
+		super();
+		this.nombre_coleccion = nombre_coleccion;
+	}
+
+	// Getter
+
+	public String getNombre_coleccion() {
+		return nombre_coleccion;
+	}
+
+	// Setter
+
+	public void setNombre_coleccion(String nombre_coleccion) {
+		this.nombre_coleccion = nombre_coleccion;
+	}
+
+	// toString
+
+	@Override
+	public String toString() {
+		return "Coleccion [nombre_coleccion=" + nombre_coleccion + "]";
+	}
+
 }

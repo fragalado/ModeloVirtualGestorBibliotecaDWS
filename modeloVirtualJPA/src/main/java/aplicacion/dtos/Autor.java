@@ -1,6 +1,7 @@
 package aplicacion.dtos;
 
 
+import java.util.ArrayList;
 import java.util.List;
 
 import jakarta.persistence.Column;
@@ -29,7 +30,7 @@ public class Autor {
 	private String apellidos_autor;
 	
 	@ManyToMany(mappedBy = "autorConLibro")
-	List<Libro> libroConAutor;
+	List<Libro> libroConAutor = new ArrayList<Libro>();
 	
 	// Constructores
 	
@@ -42,4 +43,36 @@ public class Autor {
 		this.nombre_autor = nombre_autor;
 		this.apellidos_autor = apellidos_autor;
 	}
+	
+	// Getter
+	
+	public String getNombre_autor() {
+		return nombre_autor;
+	}
+
+	public String getApellidos_autor() {
+		return apellidos_autor;
+	}
+	
+	public List<Libro> getLibroConAutor() {
+		return libroConAutor;
+	}
+	
+	// Setter
+
+	public void setNombre_autor(String nombre_autor) {
+		this.nombre_autor = nombre_autor;
+	}
+
+	public void setApellidos_autor(String apellidos_autor) {
+		this.apellidos_autor = apellidos_autor;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Autor [nombre_autor=" + nombre_autor + ", apellidos_autor=" + apellidos_autor + "]";
+	}
+	
 }

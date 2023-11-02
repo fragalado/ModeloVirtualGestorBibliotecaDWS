@@ -41,4 +41,32 @@ public class EstadoPrestamo {
 		this.descripcion_estado_prestamo = descripcion_estado_prestamo;
 	}
 	
+	// Getter
+	
+	public String getCodigo_estado_prestamo() {
+		return codigo_estado_prestamo;
+	}
+
+	public String getDescripcion_estado_prestamo() {
+		return descripcion_estado_prestamo;
+	}
+	
+	// Setter
+	
+	public void setCodigo_estado_prestamo(String codigo_estado_prestamo) {
+		this.codigo_estado_prestamo = codigo_estado_prestamo;
+	}
+
+	public void setDescripcion_estado_prestamo(String descripcion_estado_prestamo) {
+		this.descripcion_estado_prestamo = descripcion_estado_prestamo;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "EstadoPrestamo [codigo_estado_prestamo=" + codigo_estado_prestamo + ", descripcion_estado_prestamo="
+				+ descripcion_estado_prestamo + "]";
+	}
+	
 }

@@ -41,4 +41,32 @@ public class Genero {
 		this.nombre_genero = nombre_genero;
 		this.descripcion_genero = descripcion_genero;
 	}
+	
+	// Getter
+	
+	public String getNombre_genero() {
+		return nombre_genero;
+	}
+
+	public String getDescripcion_genero() {
+		return descripcion_genero;
+	}
+	
+	// Setter
+	
+	public void setNombre_genero(String nombre_genero) {
+		this.nombre_genero = nombre_genero;
+	}
+
+	public void setDescripcion_genero(String descripcion_genero) {
+		this.descripcion_genero = descripcion_genero;
+	}
+	
+	// toString
+	
+	@Override
+	public String toString() {
+		return "Genero [nombre_genero=" + nombre_genero + ", descripcion_genero=" + descripcion_genero + "]";
+	}
+	
 }

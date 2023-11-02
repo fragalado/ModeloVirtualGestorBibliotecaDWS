@@ -1,5 +1,6 @@
 package aplicacion.daos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import aplicacion.dtos.Acceso;
@@ -7,7 +8,13 @@ import jakarta.persistence.EntityManager;
 
 public class AccesoDao {
 	
-	public void insertAcceso(EntityManager em, Acceso acceso) {
+	private EntityManager em;
+	
+	public AccesoDao(EntityManager em) {
+		this.em = em;
+	}
+	
+	public void insertAcceso(Acceso acceso) {
 		// Hacemos el begin
 		em.getTransaction().begin();
 
@@ -18,22 +25,25 @@ public class AccesoDao {
 		em.getTransaction().commit();
 	}
 
-	public List<Acceso> selectUsuario(EntityManager em, List<Acceso> listaAcceso, String query) {
-		// Limpiamos la lista
-		listaAcceso.clear();
+	public void selectAcceso(String query) {
+		// Lista auxiliar
+		List<Acceso> listaAuxiliar = new ArrayList<Acceso>();
 
 		// Hacemos la query
 		// Comprobamos si el select es de todos o no
 		if (query.equals("SELECT a FROM Acceso a"))
-			listaAcceso = em.createQuery(query, Acceso.class).getResultList();
+			listaAuxiliar = em.createQuery(query, Acceso.class).getResultList();
 		else
-			listaAcceso.add(em.createQuery(query, Acceso.class).setParameter("codigoAcceso", "Usu").getSingleResult());
+			listaAuxiliar.add(em.createQuery(query, Acceso.class).setParameter("codigoAcceso", "Usu").getSingleResult());
 
-		// Devolvemos la lista actualizada
-		return listaAcceso;
+		// Mostramos por consola
+		System.out.println();
+		for (Acceso aux : listaAuxiliar) {
+			System.out.println(aux.toString());
+		}
 	}
 
-	public void updateUsuario(EntityManager em, Acceso acceso) {
+	public void updateAcceso(Acceso acceso) {
 		// Hacemos el begin
 		em.getTransaction().begin();
 
@@ -44,7 +54,7 @@ public class AccesoDao {
 		em.getTransaction().commit();
 	}
 
-	public void deleteUsuario(EntityManager em, Acceso acceso) {
+	public void deleteAcceso(Acceso acceso) {
 		// Hacemos el begin
 		em.getTransaction().begin();
 

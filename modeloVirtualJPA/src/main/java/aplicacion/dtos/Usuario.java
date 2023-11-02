@@ -186,20 +186,11 @@ public class Usuario {
 	@Override
 	public String toString() {
 		String fch_alta_usuarioString, fch_fin_bloqueo_usuarioString, fch_baja_usuarioString;
-		if(fch_alta_usuario == null)
-			fch_alta_usuarioString = null;
-		else
-			fch_alta_usuarioString  = new SimpleDateFormat("dd-MM-yyyy").format(fch_alta_usuario.getInstance().getTime());
+		fch_alta_usuarioString  = fch_alta_usuario == null? null : new SimpleDateFormat("dd-MM-yyyy").format(fch_alta_usuario.getTime());
 		
-		if(fch_fin_bloqueo_usuario == null)
-			fch_fin_bloqueo_usuarioString = null;
-		else
-			fch_fin_bloqueo_usuarioString  = new SimpleDateFormat("dd-MM-yyyy").format(fch_fin_bloqueo_usuario.getInstance().getTime());
+		fch_fin_bloqueo_usuarioString  = fch_fin_bloqueo_usuario == null ? null : new SimpleDateFormat("dd-MM-yyyy").format(fch_fin_bloqueo_usuario.getTime());
 		
-		if(fch_baja_usuario == null)
-			fch_baja_usuarioString = null;
-		else
-			fch_baja_usuarioString  = new SimpleDateFormat("dd-MM-yyyy").format(fch_baja_usuario.getInstance().getTime());
+		fch_baja_usuarioString  = fch_baja_usuario == null ? null : new SimpleDateFormat("dd-MM-yyyy").format(fch_baja_usuario.getTime());
 		
 		return "Usuario [dni_usuario=" + dni_usuario + ", nombre_usuario=" + nombre_usuario + ", apellidos_usuario="
 				+ apellidos_usuario + ", tlf_usuario=" + tlf_usuario + ", email_usuario=" + email_usuario
